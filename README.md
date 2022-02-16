@@ -6,12 +6,12 @@ Download a particular script or clone the whole repository, and then run with th
 ~~~
 $ git clone https://github.com/jcanop/installers.git
 $ cd installers
-$ sudo ./$SCRIPT\_NAME
+$ sudo ./[script name]
 ~~~
 
 Or download and execute in one line.
 ~~~
-$ curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/jcanop/installers/main/$SCRIPT\_NAME | bash
+$ curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/jcanop/installers/main/[script name] | bash
 ~~~
 
 ## Available install scripts
