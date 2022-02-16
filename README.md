@@ -11,7 +11,7 @@ $ sudo ./[script name]
 
 Or download and execute in one line.
 ~~~
-$ curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/jcanop/installers/main/[script name] | bash
+$ curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/jcanop/installers/main/[script name] | sudo bash
 ~~~
 
 ## Available install scripts
