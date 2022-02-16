@@ -37,6 +37,7 @@ json=$(curl -s $REPO | grep bind_exporter-*.*.linux-amd64.tar.gz)
 name=$(echo $json | grep -Po '"name": "\K.*?(?=")')
 url=$(echo $json | grep -Po '"browser_download_url": "\K.*?(?=")')
 dir=${name::-7}
+pushd /tmp
 curl -sL $url --output $name
 end
 
@@ -50,6 +51,7 @@ chown -R root:root $dir
 chmod -R 755 $dir
 mv $dir bind_exporter
 mv bind_exporter $INSTALL_DIR
+popd
 end
 
 # --- Configure Service ---
