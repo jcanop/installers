@@ -1,4 +1,4 @@
-# installers
+# Installers
 Install scripts for various projects for Debian Linux.
 
 ## Available install scripts

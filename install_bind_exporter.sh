@@ -75,3 +75,4 @@ systemctl daemon-reload
 systemctl start bind_exporter
 systemctl enable bind_exporter > /dev/null 2>&1
 end
+echo "Installed: $name"

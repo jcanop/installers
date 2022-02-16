@@ -75,3 +75,4 @@ systemctl daemon-reload
 systemctl start node_exporter
 systemctl enable node_exporter > /dev/null 2>&1
 end
+echo "Installed: $name"
