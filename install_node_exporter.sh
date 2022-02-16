@@ -37,7 +37,7 @@ json=$(curl -s $REPO | grep node_exporter-*.*.linux-amd64.tar.gz)
 name=$(echo $json | grep -Po '"name": "\K.*?(?=")')
 url=$(echo $json | grep -Po '"browser_download_url": "\K.*?(?=")')
 dir=${name::-7}
-pushd /tmp
+pushd /tmp > /dev/null
 curl -sL $url --output $name
 end
 
@@ -51,7 +51,7 @@ chown -R root:root $dir
 chmod -R 755 $dir
 mv $dir node_exporter
 mv node_exporter $INSTALL_DIR
-popd
+popd > /dev/null
 end
 
 # --- Configure Service ---
