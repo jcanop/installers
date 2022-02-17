@@ -58,11 +58,15 @@ end
 begin "Configuring the Service"
 echo '[Unit]
 Description=Bind Exporter
+Documentation=https://github.com/prometheus-community/bind_exporter
+Wants=network-online.target
+After=network-online.target
 
 [Service]
 User=bind_exporter
 EnvironmentFile=/etc/bind_exporter/bind_exporter.conf
 ExecStart=/opt/bind_exporter/bind_exporter $OPTIONS
+Restart=always
 
 [Install]
 WantedBy=multi-user.target' >  /etc/systemd/system/bind_exporter.service

@@ -58,11 +58,15 @@ end
 begin "Configuring the Service"
 echo '[Unit]
 Description=Node Exporter
+Documentation=https://github.com/prometheus/node_exporter
+Wants=network-online.target
+After=network-online.target
 
 [Service]
 User=node_exporter
 EnvironmentFile=/etc/node_exporter/node_exporter.conf
 ExecStart=/opt/node_exporter/node_exporter $OPTIONS
+Restart=always
 
 [Install]
 WantedBy=multi-user.target' >  /etc/systemd/system/node_exporter.service
