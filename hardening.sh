@@ -122,7 +122,9 @@ apt-get install -y \
 	util-linux \
 	procps \
 	ncurses-bin \
-	python3 python3-pip
+	python3 python3-pip \
+	ufw \
+	iptables
 success "System packages updated successfully."
 
 # --- Install automatic updates ---
