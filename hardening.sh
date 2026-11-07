@@ -246,6 +246,7 @@ ufw default allow outgoing
 # --- Allow SSH access over IPv4 and IPv6 ---
 log "Allowing SSH port $SSH_PORT over IPv4 and IPv6"
 ufw allow "$SSH_PORT/tcp" comment 'SSH Access'
+ufw limit "$SSH_PORT/tcp"
 
 # --- Enable firewall ---
 log "Enabling UFW firewall"
@@ -297,6 +298,15 @@ kernel.yama.ptrace_scope = 1
 
 # TCP SYN flood protection
 net.ipv4.tcp_syncookies = 1
+net.ipv4.tcp_max_syn_backlog = 4096
+net.core.somaxconn = 4096
+net.core.netdev_max_backlog = 4096
+net.ipv4.tcp_synack_retries = 3
+net.ipv4.tcp_rfc1337 = 1
+
+# ICMP
+net.ipv4.icmp_echo_ignore_broadcasts = 1
+net.ipv4.icmp_ignore_bogus_error_responses = 1
 
 # Disable ICMP redirects
 net.ipv4.conf.all.accept_redirects = 0
@@ -307,6 +317,14 @@ net.ipv4.conf.default.send_redirects = 0
 # Disable source routing
 net.ipv4.conf.all.accept_source_route = 0
 net.ipv4.conf.default.accept_source_route = 0
+
+# Disable Secure Redirects
+net.ipv4.conf.all.secure_redirects = 0
+net.ipv4.conf.default.secure_redirects = 0
+
+# Activate IP spoofing protection
+net.ipv4.conf.all.rp_filter = 1
+net.ipv4.conf.default.rp_filter = 1
 
 # Log suspicious packets
 net.ipv4.conf.all.log_martians = 1
