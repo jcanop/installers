@@ -154,6 +154,7 @@ if id "$USERNAME" >/dev/null 2>&1; then
 else
 	log "Creating user: $USERNAME"
 	useradd -m -s /bin/bash "$USERNAME"
+	passwd "$USERNAME"
 	success "User $USERNAME created successfully."
 fi
 
